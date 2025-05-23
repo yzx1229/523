@@ -71,8 +71,19 @@ function draw() {
     }
     endShape(CLOSE);
 
-    // 畫左眼連線
+    // 在左眼區域用 beginShape/endShape 填滿半透明黃色
     const leftEyeIndices = [243,190,56,28,27,29,30,247,130,25,110,24,23,22,26,112];
+    fill(255, 255, 0, 120); // 半透明黃色
+    noStroke();
+    beginShape();
+    for (let i = 0; i < leftEyeIndices.length; i++) {
+      const idx = leftEyeIndices[i];
+      const [x, y] = keypoints[idx];
+      vertex(x, y);
+    }
+    endShape(CLOSE);
+
+    // 畫左眼連線
     stroke(0, 200, 255); // 可自訂顏色
     strokeWeight(2);
     for (let i = 0; i < leftEyeIndices.length - 1; i++) {
