@@ -117,5 +117,17 @@ function draw() {
       const [xB, yB] = keypoints[idxB];
       line(xA, yA, xB, yB);
     }
+
+    // 畫另一組右眼連線
+    const rightEyeIndices2 = [263,466,388,387,386,385,384,398,362,382,381,380,374,373,390,249];
+    stroke(255, 255, 0); // 可自訂顏色
+    strokeWeight(2);
+    for (let i = 0; i < rightEyeIndices2.length - 1; i++) {
+      const idxA = rightEyeIndices2[i];
+      const idxB = rightEyeIndices2[i + 1];
+      const [xA, yA] = keypoints[idxA];
+      const [xB, yB] = keypoints[idxB];
+      line(xA, yA, xB, yB);
+    }
   }
 }
