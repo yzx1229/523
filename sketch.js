@@ -73,7 +73,7 @@ function draw() {
 
     // 在左眼區域用 beginShape/endShape 填滿半透明黃色
     const leftEyeIndices = [243,190,56,28,27,29,30,247,130,25,110,24,23,22,26,112];
-    fill(255, 255, 0, 120); // 半透明黃色
+    fill(255, 255, 0, 180); // 半透明黃色
     noStroke();
     beginShape();
     for (let i = 0; i < leftEyeIndices.length; i++) {
@@ -83,8 +83,8 @@ function draw() {
     }
     endShape(CLOSE);
 
-    // 畫左眼連線
-    stroke(0, 200, 255); // 可自訂顏色
+    // 畫左眼連線（藍色）
+    stroke(0, 150, 255); // 藍色
     strokeWeight(2);
     for (let i = 0; i < leftEyeIndices.length - 1; i++) {
       const idxA = leftEyeIndices[i];
@@ -94,9 +94,9 @@ function draw() {
       line(xA, yA, xB, yB);
     }
 
-    // 畫另一組左眼連線
+    // 畫另一組左眼連線（藍色）
     const leftEyeIndices2 = [133,173,157,158,159,160,161,246,33,7,163,144,145,153,154,155];
-    stroke(255, 150, 0); // 可自訂顏色
+    stroke(0, 150, 255); // 藍色
     strokeWeight(2);
     for (let i = 0; i < leftEyeIndices2.length - 1; i++) {
       const idxA = leftEyeIndices2[i];
@@ -106,9 +106,21 @@ function draw() {
       line(xA, yA, xB, yB);
     }
 
-    // 畫右眼連線
+    // 在右眼區域用 beginShape/endShape 填滿半透明黃色
+    const rightEyeIndicesFill = [359,467,260,259,257,258,286,414,463,341,256,252,253,254,339,255];
+    fill(255, 255, 0, 180); // 半透明黃色
+    noStroke();
+    beginShape();
+    for (let i = 0; i < rightEyeIndicesFill.length; i++) {
+      const idx = rightEyeIndicesFill[i];
+      const [x, y] = keypoints[idx];
+      vertex(x, y);
+    }
+    endShape(CLOSE);
+
+    // 畫右眼連線（藍色）
     const rightEyeIndices = [359,467,260,259,257,258,286,414,463,341,256,252,253,254,339,255];
-    stroke(0, 255, 100); // 可自訂顏色
+    stroke(0, 150, 255); // 藍色
     strokeWeight(2);
     for (let i = 0; i < rightEyeIndices.length - 1; i++) {
       const idxA = rightEyeIndices[i];
@@ -118,9 +130,9 @@ function draw() {
       line(xA, yA, xB, yB);
     }
 
-    // 畫另一組右眼連線
+    // 畫另一組右眼連線（藍色）
     const rightEyeIndices2 = [263,466,388,387,386,385,384,398,362,382,381,380,374,373,390,249];
-    stroke(255, 255, 0); // 可自訂顏色
+    stroke(0, 150, 255); // 藍色
     strokeWeight(2);
     for (let i = 0; i < rightEyeIndices2.length - 1; i++) {
       const idxA = rightEyeIndices2[i];
