@@ -44,7 +44,7 @@ function draw() {
     // 再畫第二組紅色線並填滿黃色
     stroke(255, 0, 0);
     strokeWeight(2);
-    fill(255, 255, 0, 200); // 半透明黃色
+    fill(255, 175, 204, 150); // 半透明黃色
     beginShape();
     for (let i = 0; i < indices2.length; i++) {
       const idx = indices2[i];
@@ -54,7 +54,7 @@ function draw() {
     endShape(CLOSE);
 
     // 在第一組與第二組之間充滿綠色
-    fill(0, 255, 0, 150); // 半透明綠色
+    fill(150, 0, 255, 150); // 半透明綠色
     noStroke();
     beginShape();
     // 先畫第一組
@@ -70,5 +70,17 @@ function draw() {
       vertex(x, y);
     }
     endShape(CLOSE);
+
+    // 畫左眼連線
+    const leftEyeIndices = [243,190,56,28,27,29,30,247,130,25,110,24,23,22,26,112];
+    stroke(0, 200, 255); // 可自訂顏色
+    strokeWeight(2);
+    for (let i = 0; i < leftEyeIndices.length - 1; i++) {
+      const idxA = leftEyeIndices[i];
+      const idxB = leftEyeIndices[i + 1];
+      const [xA, yA] = keypoints[idxA];
+      const [xB, yB] = keypoints[idxB];
+      line(xA, yA, xB, yB);
+    }
   }
 }
